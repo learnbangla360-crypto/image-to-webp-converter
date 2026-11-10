@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Image to WebP Converter – Free, Private, No Upload</title>
+<meta name="description" content="Convert JPG, PNG, GIF and BMP to WebP free in your browser. Adjust quality, resize, batch convert. Files never leave your device.">
+<link rel="canonical" href="https://imagetowebp.globrik.com/">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#0b6e6e">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Globrik">
+<meta property="og:title" content="Image to WebP Converter – Free, Private, No Upload">
+<meta property="og:description" content="Convert JPG, PNG, GIF and BMP to WebP free in your browser. Adjust quality, resize, batch convert.">
+<meta property="og:url" content="https://imagetowebp.globrik.com/">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Image to WebP Converter – Free, Private, No Upload">
+<meta name="twitter:description" content="Convert JPG, PNG, GIF and BMP to WebP free in your browser. Files never leave your device.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b6e6e'/%3E%3Cpath d='M12 20l10 26 10-18 10 18 10-26' fill='none' stroke='%23fff' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[
+{"@type":"WebApplication","name":"Image to WebP Converter","url":"https://imagetowebp.globrik.com/","description":"Free browser-based tool that converts JPG, PNG, GIF, BMP and other images to WebP with adjustable quality and optional resizing. Files are processed locally and never uploaded.","applicationCategory":"MultimediaApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}},
+{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://globrik.com/"},{"@type":"ListItem","position":2,"name":"Image to WebP Converter","item":"https://imagetowebp.globrik.com/"}]},
+{"@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is this image to WebP converter free?","acceptedAnswer":{"@type":"Answer","text":"Yes. It's completely free, with no daily limit, no watermark and no paid tier. You can convert as many images as your device can handle, and the converted files are yours to use however you like, including on commercial websites."}},
+{"@type":"Question","name":"Is it safe to convert my photos here?","acceptedAnswer":{"@type":"Answer","text":"Yes. Conversion runs in your browser using the Canvas API, so your images are never uploaded to a server. You can confirm this by switching your device to airplane mode after the page loads and converting a file. It still works."}},
+{"@type":"Question","name":"Do I need to create an account?","acceptedAnswer":{"@type":"Answer","text":"No. There's no signup, no email and no login. Open the page, drop in your images, choose a quality level and download the WebP files. Nothing is stored, so there's no history to manage or delete afterward."}},
+{"@type":"Question","name":"What are the file limits?","acceptedAnswer":{"@type":"Answer","text":"You can add up to 20 images at a time, with each file up to 25 MB. Very large pixel dimensions may fail on phones with limited memory. If that happens, set a maximum width such as 4000 pixels and try again."}},
+{"@type":"Question","name":"Does it work on iPhone and Android?","acceptedAnswer":{"@type":"Answer","text":"Yes. The tool is built mobile-first and works in current versions of Safari, Chrome, Firefox and Edge on phones and tablets. Tap the drop area to choose photos from your gallery. Very old browsers that can't encode WebP will show a clear message."}},
+{"@type":"Question","name":"Will converting to WebP reduce image quality?","acceptedAnswer":{"@type":"Answer","text":"At the default quality of 80, the difference is usually hard to see at normal viewing size, while the file gets noticeably smaller. Lower settings add visible softness. Converting an already compressed JPG adds one more round of compression, so keep your originals."}},
+{"@type":"Question","name":"Does it work offline?","acceptedAnswer":{"@type":"Answer","text":"Once the page has loaded, the conversion itself needs no internet connection, because all the code runs locally. You can't open the page for the first time while offline, but if it's already open in a tab, it keeps working."}},
+{"@type":"Question","name":"Does WebP keep transparency from PNG files?","acceptedAnswer":{"@type":"Answer","text":"Yes. WebP supports an alpha channel, so transparent areas in a PNG stay transparent after conversion. This tool doesn't fill transparent pixels with a background color, which makes it a good fit for logos, icons and product cutouts."}},
+{"@type":"Question","name":"What happens to animated GIFs?","acceptedAnswer":{"@type":"Answer","text":"Browsers draw only the first frame of an animated GIF onto a canvas, so the WebP you get is a still image of that first frame. This tool doesn't create animated WebP files, so keep the original GIF if you need motion."}},
+{"@type":"Question","name":"Why is my WebP sometimes bigger than the original?","acceptedAnswer":{"@type":"Answer","text":"Files that were already heavily compressed, such as small or low-quality JPGs, can grow when re-encoded at a higher quality setting. Lower the quality slider, or resize the image first. The results list flags any file that ended up larger."}}
+]}
+]}
+</script>
+<style>
+:root{--bg:#f7f9f8;--fg:#14211f;--mute:#4a5b58;--card:#fff;--line:#d5dedb;--ac:#0b6e6e;--ac2:#084f4f;--on:#fff;--warn:#9a3412;--ok:#166534;color-scheme:light dark}
+@media(prefers-color-scheme:dark){:root{--bg:#0f1715;--fg:#e8f0ee;--mute:#a9bab6;--card:#16211f;--line:#2b3b38;--ac:#3cc2b5;--ac2:#68d6cb;--on:#06201d;--warn:#fdba74;--ok:#86efac}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif}
+a{color:var(--ac2)}a:hover{text-decoration:none}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.w{max-width:880px;margin:0 auto;padding:0 18px}
+header{border-bottom:1px solid var(--line);background:var(--card)}
+header .w{display:flex;flex-wrap:wrap;align-items:center;gap:6px 18px;padding-top:10px;padding-bottom:10px}
+.logo{font-weight:800;font-size:1.35rem;letter-spacing:-.02em;color:var(--fg);text-decoration:none}
+nav ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:2px 14px;font-size:.9rem}
+nav a{display:inline-block;padding:10px 2px;min-height:44px}
+h1{font-size:clamp(1.8rem,5vw,2.6rem);line-height:1.15;margin:28px 0 8px;letter-spacing:-.02em}
+h2{font-size:1.55rem;line-height:1.25;margin:44px 0 10px}
+h3{font-size:1.15rem;margin:24px 0 6px}
+.lead{font-size:1.15rem;color:var(--mute);margin:0 0 20px}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:18px;min-height:340px}
+.drop{display:block;border:2px dashed var(--ac);border-radius:12px;padding:34px 16px;text-align:center;cursor:pointer;min-height:140px}
+.drop.on,.drop:focus-within{background:color-mix(in srgb,var(--ac) 10%,transparent)}
+.drop input{position:absolute;opacity:0;width:1px;height:1px}
+.drop strong{display:block;font-size:1.15rem}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:18px 0}
+.opts label{display:block;font-weight:600;font-size:.95rem}
+.opts input[type=range]{width:100%;min-height:44px}
+.opts input[type=number]{width:100%;min-height:44px;padding:6px 10px;font-size:1rem;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg)}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+button{min-height:44px;padding:8px 18px;font:inherit;font-weight:650;border-radius:9px;border:2px solid var(--ac);background:var(--ac);color:var(--on);cursor:pointer}
+button.alt{background:transparent;color:var(--ac2)}
+button:disabled{opacity:.5;cursor:not-allowed}
+#st{min-height:1.6em;margin:12px 0 0;font-weight:600}
+.err{color:var(--warn)}.good{color:var(--ok)}
+progress{width:100%;height:10px;margin-top:8px}
+#out{list-style:none;margin:14px 0 0;padding:0}
+#out li{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;padding:10px 0;border-top:1px solid var(--line)}
+#out img{width:56px;height:56px;object-fit:cover;border-radius:8px;background:repeating-conic-gradient(var(--line) 0 25%,transparent 0 50%) 0 0/12px 12px}
+#out .m{flex:1 1 200px;min-width:0;overflow-wrap:anywhere;font-size:.92rem}
+#out a.dl{display:inline-block;padding:10px 16px;min-height:44px;border:2px solid var(--ac);border-radius:9px;font-weight:650;text-decoration:none}
+.note{font-size:.9rem;color:var(--mute);margin:12px 0 0}
+.qa{background:var(--card);border-left:5px solid var(--ac);border-radius:8px;padding:6px 18px 8px;margin:28px 0}
+.toc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 18px;margin:24px 0}
+.toc ul{columns:2 240px;margin:6px 0;padding-left:18px}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:480px;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+th{background:var(--card)}
+details{background:var(--card);border:1px solid var(--line);border-radius:10px;margin:10px 0}
+summary{cursor:pointer;padding:12px 16px;font-weight:650;min-height:44px}
+details p{margin:0;padding:0 16px 14px}
+dt{font-weight:700;margin-top:10px}dd{margin:0 0 4px}
+footer{margin-top:56px;border-top:1px solid var(--line);background:var(--card);font-size:.92rem;color:var(--mute)}
+footer .w{padding-top:24px;padding-bottom:30px}
+footer ul{list-style:none;padding:0;display:flex;flex-wrap:wrap;gap:4px 18px}
+footer a{display:inline-block;padding:10px 0}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+</style>
+</head>
+<body>
+<header>
+<div class="w">
+<a class="logo" href="https://globrik.com/">Globrik</a>
+<nav aria-label="Globrik tools"><ul>
+<li><a href="https://compressimage.globrik.com/">Compress Image</a></li>
+<li><a href="https://resizeimage.globrik.com/">Resize Image</a></li>
+<li><a href="https://webptopng.globrik.com/">WebP to PNG</a></li>
+<li><a href="https://jpgtopng.globrik.com/">JPG to PNG</a></li>
+<li><a href="https://pdftojpg.globrik.com/">PDF to JPG</a></li>
+<li><a href="https://bgremover.globrik.com/">Background Remover</a></li>
+</ul></nav>
+</div>
+</header>
+<main class="w">
+<article>
+<h1>Image to WebP Converter</h1>
+<p class="lead">Turn JPG, PNG, GIF and BMP files into smaller WebP images in seconds, right in your browser.</p>
+
+<section class="tool" aria-label="Image to WebP converter tool">
+<label class="drop" id="drop">
+<input type="file" id="file" accept="image/*" multiple aria-label="Choose images to convert to WebP">
+<strong>Drop images here or tap to choose</strong>
+<span>JPG, PNG, GIF, BMP, AVIF or WebP. Up to 20 files, 25 MB each.</span>
+</label>
+<div class="opts">
+<div><label for="q">Quality: <output id="qv">80</output></label><input type="range" id="q" min="1" max="100" value="80"></div>
+<div><label for="mw">Max width in pixels (optional)</label><input type="number" id="mw" min="16" max="16000" placeholder="Keep original size" inputmode="numeric"></div>
+</div>
+<div class="btns">
+<button type="button" id="go" disabled>Convert to WebP</button>
+<button type="button" id="all" class="alt" disabled>Download all</button>
+<button type="button" id="cp" class="alt" disabled>Copy summary</button>
+<button type="button" id="rs" class="alt">Reset / Start over</button>
+</div>
+<progress id="pg" value="0" max="1" hidden aria-label="Conversion progress"></progress>
+<p id="st" role="status" aria-live="polite">Add one or more images to begin.</p>
+<ul id="out"></ul>
+<p class="note">Your files are processed in your browser and are never uploaded.</p>
+</section>
+
+<nav class="toc" aria-label="On this page"><strong>On this page</strong>
+<ul>
+<li><a href="#quick">Quick answer</a></li><li><a href="#intro">What it does</a></li><li><a href="#why">Why use this tool</a></li><li><a href="#guide">Step-by-step guide</a></li><li><a href="#specs">Formats and limits</a></li><li><a href="#uses">Use cases</a></li><li><a href="#features">Key features</a></li><li><a href="#tips">Expert tips</a></li><li><a href="#privacy">Privacy and security</a></li><li><a href="#compare">Compared with alternatives</a></li><li><a href="#trouble">Troubleshooting</a></li><li><a href="#glossary">Glossary</a></li><li><a href="#faq">FAQ</a></li>
+</ul></nav>
+
+<section id="quick" class="qa">
+<h2>How to convert an image to WebP</h2>
+<p>To convert an image to WebP, add your file to the tool above, leave the quality at 80 (or adjust it), click Convert to WebP, then download the result. The new file is usually noticeably smaller than the original JPG or PNG, and it keeps transparency.</p>
+<ol>
+<li>Drop your images into the box or tap it to pick files.</li>
+<li>Set the quality slider. 75 to 85 suits most photos.</li>
+<li>Optionally enter a maximum width to shrink big photos.</li>
+<li>Click <strong>Convert to WebP</strong>.</li>
+<li>Download each file, or use <strong>Download all</strong>.</li>
+</ol>
+</section>
+
+<section id="intro">
+<h2>Free image to WebP converter that works in your browser</h2>
+<p>This image to WebP converter re-encodes your pictures into Google's WebP format without sending them anywhere. You choose the quality, optionally cap the width, and get a smaller file you can drop straight into a website, blog or online store.</p>
+<p>WebP is built for the web. Google reports that lossy WebP files are 25 to 34 percent smaller than comparable JPEGs, and lossless WebP is about 26 percent smaller than PNG. Smaller images mean faster pages, and faster pages tend to keep visitors around longer. You can read the format overview on <a href="https://developers.google.com/speed/webp" rel="noopener">Google's WebP page</a>.</p>
+</section>
+
+<section id="why">
+<h2>Why use this tool</h2>
+<p>There are plenty of converters out there. Here's what's actually different about this one, and every point is true for the code on this page.</p>
+<ul>
+<li><strong>Nothing is uploaded.</strong> Conversion uses your browser's own image engine, so private photos stay on your device.</li>
+<li><strong>No signup and no watermark.</strong> You get a clean file with no logo stamped on it.</li>
+<li><strong>Batch conversion.</strong> Process up to 20 images in one go instead of repeating the steps.</li>
+<li><strong>Built-in resizing.</strong> Setting a maximum width shrinks huge phone photos while converting, so you don't need a second tool.</li>
+<li><strong>Honest results.</strong> Each file shows its before and after size, and the tool tells you when a WebP came out larger.</li>
+</ul>
+</section>
+
+<section id="guide">
+<h2>Step-by-step guide to converting images to WebP</h2>
+<h3>1. Add your images</h3>
+<p>Drag files onto the dashed box, or click or tap it to open your file picker. On a phone, you can choose several photos from your gallery at once. If you add files twice, the second batch is appended to the first, up to 20 in total.</p>
+<h3>2. Choose a quality level</h3>
+<p>The slider runs from 1 to 100. Quality 80 is a sensible default for photos. For screenshots, text-heavy graphics and logos, try 90 or higher, because soft artifacts show up more around sharp edges. For large hero images that sit behind text, 65 to 75 is often fine.</p>
+<h3>3. Resize if you need to</h3>
+<p>A 12-megapixel phone photo is far bigger than any web page needs. Typing 1600 or 2000 in the width box scales the image down proportionally and never enlarges a smaller one. If you only want to resize without changing format, our <a href="https://resizeimage.globrik.com/">Resize Image</a> tool does that.</p>
+<h3>4. Convert and check the numbers</h3>
+<p>Click Convert to WebP. Each finished file appears with a thumbnail, its new dimensions, and the size change as a percentage. If the saving looks small, drop the quality by 5 to 10 points and run it again.</p>
+<h3>5. Download</h3>
+<p>Use the Download button beside each file, or Download all to save everything in turn. Your browser may ask permission to download multiple files the first time. Allow it, and the files will land in your usual downloads folder with a .webp extension.</p>
+</section>
+
+<section id="specs">
+<h2>Supported formats, specs and limits</h2>
+<p>These are the real limits of the code on this page. Some depend on your browser and device memory.</p>
+<div class="tw"><table>
+<caption class="note">Input and output details</caption>
+<tr><th>Item</th><th>Detail</th></tr>
+<tr><td>Input formats</td><td>JPG/JPEG, PNG, GIF (first frame), BMP, WebP, and AVIF where your browser can open it</td></tr>
+<tr><td>Output format</td><td>WebP (lossy, quality 1 to 100)</td></tr>
+<tr><td>Not supported</td><td>HEIC/HEIF, TIFF, RAW, PDF (see <a href="https://heictojpg.globrik.com/">HEIC to JPG</a> first for iPhone files)</td></tr>
+<tr><td>Files per batch</td><td>Up to 20</td></tr>
+<tr><td>Size per file</td><td>Up to 25 MB</td></tr>
+<tr><td>Resizing</td><td>Optional max width, 16 to 16,000 px, proportional, never upscales</td></tr>
+<tr><td>Transparency</td><td>Preserved from PNG, GIF and WebP sources</td></tr>
+<tr><td>Metadata (EXIF)</td><td>Not copied to the output</td></tr>
+<tr><td>Animation</td><td>Not supported; only the first frame is converted</td></tr>
+<tr><td>Browser requirement</td><td>A browser whose canvas can encode WebP (current Chrome, Edge, Firefox and Safari)</td></tr>
+</table></div>
+</section>
+
+<section id="uses">
+<h2>Use cases</h2>
+<ul>
+<li><strong>Website owners and bloggers</strong> shrink featured images to improve load time and Core Web Vitals.</li>
+<li><strong>WordPress and Shopify store owners</strong> convert product photos before uploading, so catalog pages stay light.</li>
+<li><strong>Web developers</strong> batch-prepare assets for a build without installing command-line tools.</li>
+<li><strong>Designers</strong> export logos and icons with transparent backgrounds at a fraction of the PNG size.</li>
+<li><strong>Email and newsletter writers</strong> keep graphics small, though note that some email clients still don't display WebP.</li>
+<li><strong>Photographers</strong> create lightweight web galleries while the full-size originals stay untouched on disk.</li>
+<li><strong>Students and freelancers</strong> fit images under upload limits on portals and job platforms.</li>
+</ul>
+</section>
+
+<section id="features">
+<h2>Key features and benefits</h2>
+<ul>
+<li>Adjustable quality from 1 to 100 with a sensible default.</li>
+<li>Drag and drop plus a regular file picker for phones.</li>
+<li>Batch processing with a progress bar.</li>
+<li>Before and after file sizes for every image.</li>
+<li>Optional proportional resizing during conversion.</li>
+<li>Alpha transparency carried through.</li>
+<li>Dark mode that follows your device setting.</li>
+<li>Keyboard accessible controls and screen reader announcements.</li>
+</ul>
+</section>
+
+<section id="tips">
+<h2>Expert tips and common mistakes</h2>
+<h3>Always keep your originals</h3>
+<p>Lossy conversion is a one-way trip. Once you save a WebP at quality 60, the detail you lost isn't coming back, so archive the source JPG or PNG somewhere safe.</p>
+<h3>Don't convert a compressed JPG at high quality expecting miracles</h3>
+<p>A JPG that was already squeezed hard has little left to remove. Converting it at 95 can even produce a bigger file. Start at 75 to 80 and compare.</p>
+<h3>Resize before you obsess over quality</h3>
+<p>A 4000-pixel-wide photo displayed in a 800-pixel column wastes most of its pixels. Cutting the width usually saves more than any quality tweak. If you need a precise crop first, use <a href="https://cropimage.globrik.com/">Crop Image</a>.</p>
+<h3>Match quality to content</h3>
+<p>Photos hide compression well. Flat-color graphics, screenshots and small text don't, so give them a higher setting and zoom in to check the edges.</p>
+<h3>Provide a fallback where it matters</h3>
+<p>All current major browsers display WebP, but older apps, some email clients and certain social upload forms may reject it. If you need the old format back, try <a href="https://webptojpg.globrik.com/">WebP to JPG</a>.</p>
+<h3>Check the result at full size</h3>
+<p>Open the downloaded file and look at gradients, such as skies. Banding there is the first sign you've pushed quality too low.</p>
+</section>
+
+<section id="privacy">
+<h2>Privacy and security</h2>
+<p>Your files are processed in your browser and are never uploaded. When you add an image, the page reads it locally, draws it onto a canvas element and asks your browser to encode that canvas as WebP. No server receives the image, and nothing is saved between visits.</p>
+<p>The converted files exist only in your browser's memory until you download them or click Reset. Resetting releases them. Because EXIF data isn't copied, details like camera model or GPS coordinates in the original aren't carried into the WebP. That's a side effect of how canvas export works, not a dedicated privacy feature, so check the original separately if location data matters to you. For a purpose-built option, see the <a href="https://aimetadatacleaner.globrik.com/">AI Metadata Cleaner</a>.</p>
+</section>
+
+<section id="compare">
+<h2>This tool versus alternatives</h2>
+<p>Each approach has a place. Here's a fair look at how they differ.</p>
+<div class="tw"><table>
+<tr><th>Feature</th><th>This browser tool</th><th>Desktop software</th><th>Server-based online converters</th></tr>
+<tr><td>Install needed</td><td>No</td><td>Yes</td><td>No</td></tr>
+<tr><td>Files leave your device</td><td>No</td><td>No</td><td>Usually yes</td></tr>
+<tr><td>Fine-grained encoder settings</td><td>Quality and width only</td><td>Many options</td><td>Varies</td></tr>
+<tr><td>Animated WebP</td><td>No</td><td>Often yes</td><td>Sometimes</td></tr>
+<tr><td>Works on a phone</td><td>Yes</td><td>Rarely</td><td>Yes</td></tr>
+<tr><td>Best for</td><td>Quick, private conversions</td><td>Heavy professional workflows</td><td>Formats a browser can't read</td></tr>
+</table></div>
+<p>If you need lossless control, animation, or RAW input, desktop software is the better choice. For everything else, a browser tool is faster. To compress without changing format, try <a href="https://compressimage.globrik.com/">Compress Image File</a>.</p>
+</section>
+
+<section id="trouble">
+<h2>Troubleshooting</h2>
+<h3>The converted file downloads as PNG or won't convert</h3>
+<p>Your browser can't encode WebP from a canvas. Update it, or switch to current Chrome, Edge, Firefox or Safari.</p>
+<h3>My image failed to load</h3>
+<p>The file may be corrupted, renamed with the wrong extension, or in an unsupported format such as HEIC or TIFF. Re-export it as JPG or PNG and try again.</p>
+<h3>The page froze or the file failed on my phone</h3>
+<p>Very large photos use a lot of memory. Enter a max width of 3000 or less, and convert fewer files at a time.</p>
+<h3>The WebP is bigger than the original</h3>
+<p>The source was already heavily compressed. Lower the quality, set a smaller width, or keep the original.</p>
+<h3>My animated GIF isn't moving</h3>
+<p>Only the first frame is converted. Use a dedicated animation tool if you need an animated WebP.</p>
+<h3>Download all only saved one file</h3>
+<p>Your browser may have blocked multiple downloads. Allow downloads for this site, then click again, or use the individual buttons.</p>
+<h3>The colors look slightly different</h3>
+<p>Canvas export doesn't embed the original color profile. Images in unusual profiles such as Adobe RGB may shift slightly toward sRGB.</p>
+</section>
+
+<section id="glossary">
+<h2>Glossary</h2>
+<dl>
+<dt>WebP</dt><dd>An image format developed by Google that supports lossy and lossless compression, transparency and animation.</dd>
+<dt>Lossy compression</dt><dd>Reduces file size by discarding detail the eye is least likely to notice.</dd>
+<dt>Alpha channel</dt><dd>The layer of image data that stores transparency.</dd>
+<dt>Canvas</dt><dd>A browser drawing surface that lets a page read, change and re-encode pixels. See <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLCanvasElement/toBlob" rel="noopener">MDN: toBlob</a>.</dd>
+<dt>EXIF</dt><dd>Metadata stored inside photos, such as camera settings, date and sometimes location.</dd>
+</dl>
+</section>
+
+<section id="faq">
+<h2>Frequently asked questions</h2>
+<details><summary>Is this image to WebP converter free?</summary><p>Yes. It's completely free, with no daily limit, no watermark and no paid tier. You can convert as many images as your device can handle, and the converted files are yours to use however you like, including on commercial websites.</p></details>
+<details><summary>Is it safe to convert my photos here?</summary><p>Yes. Conversion runs in your browser using the Canvas API, so your images are never uploaded to a server. You can confirm this by switching your device to airplane mode after the page loads and converting a file. It still works.</p></details>
+<details><summary>Do I need to create an account?</summary><p>No. There's no signup, no email and no login. Open the page, drop in your images, choose a quality level and download the WebP files. Nothing is stored, so there's no history to manage or delete afterward.</p></details>
+<details><summary>What are the file limits?</summary><p>You can add up to 20 images at a time, with each file up to 25 MB. Very large pixel dimensions may fail on phones with limited memory. If that happens, set a maximum width such as 4000 pixels and try again.</p></details>
+<details><summary>Does it work on iPhone and Android?</summary><p>Yes. The tool is built mobile-first and works in current versions of Safari, Chrome, Firefox and Edge on phones and tablets. Tap the drop area to choose photos from your gallery. Very old browsers that can't encode WebP will show a clear message.</p></details>
+<details><summary>Will converting to WebP reduce image quality?</summary><p>At the default quality of 80, the difference is usually hard to see at normal viewing size, while the file gets noticeably smaller. Lower settings add visible softness. Converting an already compressed JPG adds one more round of compression, so keep your originals.</p></details>
+<details><summary>Does it work offline?</summary><p>Once the page has loaded, the conversion itself needs no internet connection, because all the code runs locally. You can't open the page for the first time while offline, but if it's already open in a tab, it keeps working.</p></details>
+<details><summary>Does WebP keep transparency from PNG files?</summary><p>Yes. WebP supports an alpha channel, so transparent areas in a PNG stay transparent after conversion. This tool doesn't fill transparent pixels with a background color, which makes it a good fit for logos, icons and product cutouts.</p></details>
+<details><summary>What happens to animated GIFs?</summary><p>Browsers draw only the first frame of an animated GIF onto a canvas, so the WebP you get is a still image of that first frame. This tool doesn't create animated WebP files, so keep the original GIF if you need motion.</p></details>
+<details><summary>Why is my WebP sometimes bigger than the original?</summary><p>Files that were already heavily compressed, such as small or low-quality JPGs, can grow when re-encoded at a higher quality setting. Lower the quality slider, or resize the image first. The results list flags any file that ended up larger.</p></details>
+</section>
+
+<section id="conclusion">
+<h2>Convert your images to WebP now</h2>
+<p>Smaller images make for faster pages, and this image to WebP converter gets you there without uploads, accounts or watermarks. Scroll back up, drop in your files, pick a quality that looks right to you, and download your WebP images. Need to go the other way or resize first? The related tools below have you covered.</p>
+</section>
+
+<section id="related">
+<h2>Related tools</h2>
+<ul>
+<li><a href="https://compressimage.globrik.com/">Compress Image File</a> – shrink images without changing format</li>
+<li><a href="https://resizeimage.globrik.com/">Resize Image</a> – set exact pixel dimensions</li>
+<li><a href="https://webptopng.globrik.com/">WebP to PNG Converter</a> – turn WebP back into lossless PNG</li>
+<li><a href="https://webptojpg.globrik.com/">WebP to JPG Converter</a> – get a universally compatible JPG</li>
+<li><a href="https://pngtojpg.globrik.com/">PNG to JPG Converter</a> – flatten PNGs to smaller JPGs</li>
+<li><a href="https://imagesizereducer.globrik.com/">Image Size Reducer</a> – cut file size for upload limits</li>
+</ul>
+</section>
+</article>
+</main>
+<footer>
+<div class="w">
+<ul>
+<li><a href="https://sites.google.com/view/globriklegal/privacy-policy">Privacy Policy</a></li>
+<li><a href="https://sites.google.com/view/globriklegal/terms-of-use">Terms</a></li>
+<li><a href="https://sites.google.com/view/globriklegal/contact">Contact</a></li>
+<li><a href="https://sites.google.com/view/globriklegal/about">About</a></li>
+</ul>
+<p>Disclaimer: use only images you own or have the right to modify. Results depend on your browser and source file, and you should keep a copy of your originals.</p>
+<p>Last updated: November 2026 · © 2026 Globrik</p>
+</div>
+</footer>
+<script>
+(function(){
+try{
+var $=function(i){return document.getElementById(i)};
+var MAX_FILES=20,MAX_BYTES=25*1024*1024;
+var files=[],res=[],urls=[],busy=false;
+var drop=$("drop"),inp=$("file"),go=$("go"),all=$("all"),cp=$("cp"),st=$("st"),out=$("out"),pg=$("pg"),q=$("q");
+function say(t,c){st.textContent=t;st.className=c||""}
+function fmt(n){return n>=1048576?(n/1048576).toFixed(2)+" MB":(n/1024).toFixed(1)+" KB"}
+function clearOut(){urls.forEach(function(u){URL.revokeObjectURL(u)});urls=[];res=[];out.innerHTML="";all.disabled=true;cp.disabled=true}
+function add(list){
+if(busy)return;
+var msgs=[];
+Array.prototype.forEach.call(list,function(f){
+if(!/^image\//.test(f.type)&&!/\.(jpe?g|png|gif|bmp|webp|avif)$/i.test(f.name)){msgs.push(f.name+": not a supported image type.");return}
+if(/heic|heif/i.test(f.type)||/\.hei[cf]$/i.test(f.name)){msgs.push(f.name+": HEIC isn't supported here. Convert it to JPG first.");return}
+if(f.size>MAX_BYTES){msgs.push(f.name+": larger than 25 MB.");return}
+if(f.size===0){msgs.push(f.name+": the file is empty.");return}
+if(files.length>=MAX_FILES){msgs.push("Only the first 20 images are kept.");return}
+files.push(f)});
+go.disabled=!files.length;
+if(files.length){say(files.length+" image"+(files.length>1?"s":"")+" ready. "+(msgs.length?msgs[0]:"Click Convert to WebP."),msgs.length?"err":"")}
+else{say(msgs.length?msgs[0]:"Add one or more images to begin.",msgs.length?"err":"")}
+}
+function load(f){
+return new Promise(function(ok,no){
+var u=URL.createObjectURL(f),im=new Image();
+im.onload=function(){URL.revokeObjectURL(u);ok(im)};
+im.onerror=function(){URL.revokeObjectURL(u);no(new Error("could not be read. It may be corrupted or in an unsupported format."))};
+im.src=u})}
+function enc(c,qual){return new Promise(function(ok){c.toBlob(ok,"image/webp",qual)})}
+async function one(f,mw,qual){
+var im=await load(f),w=im.naturalWidth,h=im.naturalHeight;
+if(!w||!h)throw new Error("has no readable dimensions.");
+if(mw&&w>mw){h=Math.round(h*mw/w);w=mw}
+var c=document.createElement("canvas");c.width=w;c.height=h;
+var x=c.getContext("2d");
+if(!x)throw new Error("can't be processed: canvas isn't available.");
+x.drawImage(im,0,0,w,h);
+var b=await enc(c,qual);
+if(!b)throw new Error("is too large for this browser's memory. Try a smaller max width.");
+if(b.type!=="image/webp")throw new Error("can't be encoded: your browser doesn't support WebP export. Try a current Chrome, Edge, Firefox or Safari.");
+return{blob:b,w:w,h:h}}
+go.onclick=async function(){
+if(busy||!files.length)return;
+busy=true;go.disabled=true;clearOut();
+var mwv=parseInt($("mw").value,10),mw=mwv>=16&&mwv<=16000?mwv:0,qual=q.value/100;
+pg.hidden=false;pg.max=files.length;pg.value=0;
+var ok=0,bad=0;
+for(var i=0;i<files.length;i++){
+var f=files[i];say("Converting "+(i+1)+" of "+files.length+": "+f.name);
+try{
+var r=await one(f,mw,qual),url=URL.createObjectURL(r.blob);urls.push(url);
+var name=f.name.replace(/\.[^.]+$/,"")+".webp";
+var diff=Math.round((1-r.blob.size/f.size)*100);
+res.push({name:name,from:f.size,to:r.blob.size,url:url});
+var li=document.createElement("li");
+var img=document.createElement("img");img.src=url;img.alt="Preview of "+name;
+var m=document.createElement("div");m.className="m";
+m.textContent=name+" · "+r.w+"×"+r.h+" px · "+fmt(f.size)+" → "+fmt(r.blob.size)+" ("+(diff>=0?"−"+diff+"%":"+"+(-diff)+"% larger, try a lower quality")+")";
+var a=document.createElement("a");a.className="dl";a.href=url;a.download=name;a.textContent="Download";a.setAttribute("aria-label","Download "+name);
+li.appendChild(img);li.appendChild(m);li.appendChild(a);out.appendChild(li);ok++
+}catch(e){
+bad++;var li2=document.createElement("li");li2.className="err";li2.textContent=f.name+" "+(e&&e.message?e.message:"failed to convert.");out.appendChild(li2)}
+pg.value=i+1;
+await new Promise(function(r){setTimeout(r,0)})}
+pg.hidden=true;busy=false;go.disabled=false;
+all.disabled=!ok;cp.disabled=!ok;
+say(ok?("Done. "+ok+" converted"+(bad?", "+bad+" failed.":".")):"Nothing was converted. See the messages below.",ok?"good":"err")};
+all.onclick=function(){
+res.forEach(function(r,i){setTimeout(function(){var a=document.createElement("a");a.href=r.url;a.download=r.name;document.body.appendChild(a);a.click();a.remove()},i*350)});
+say("Downloading "+res.length+" file"+(res.length>1?"s":"")+". If only one saves, allow multiple downloads in your browser.")};
+cp.onclick=function(){
+var t=res.map(function(r){return r.name+": "+fmt(r.from)+" -> "+fmt(r.to)}).join("\n");
+if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(t).then(function(){say("Summary copied.","good")},function(){say("Couldn't copy. Your browser blocked clipboard access.","err")})}
+else{say("Copying isn't available in this browser.","err")}};
+$("rs").onclick=function(){
+if(busy)return;files=[];clearOut();inp.value="";go.disabled=true;pg.hidden=true;$("mw").value="";q.value=80;$("qv").textContent="80";say("Add one or more images to begin.")};
+q.oninput=function(){$("qv").textContent=q.value};
+inp.onchange=function(){add(inp.files);inp.value=""};
+["dragenter","dragover"].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.add("on")})});
+["dragleave","drop"].forEach(function(n){drop.addEventListener(n,function(e){e.preventDefault();drop.classList.remove("on")})});
+drop.addEventListener("drop",function(e){if(e.dataTransfer&&e.dataTransfer.files)add(e.dataTransfer.files)});
+}catch(err){var s=document.getElementById("st");if(s){s.textContent="Something went wrong starting the tool. Please reload the page.";s.className="err"}}
+})();
+</script>
+</body>
+</html>
